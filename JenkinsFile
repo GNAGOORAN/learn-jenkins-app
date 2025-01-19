@@ -22,7 +22,9 @@ pipeline {
         }
         stage('Test') {
             steps {
+                reuseNode true
                 sh '''
+                test -f build/index.html
                 cat build/index.html
                 npm test
                 '''
